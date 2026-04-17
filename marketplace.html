@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valéry Grancher — Marketplace NFT</title>
+
+<!-- 🔐 EU NIS2 Security Headers -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.infura.io https://*.alchemy.com wss://*.infura.io; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Unbounded:wght@200;300;400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #05050a;
+  --bg2: #0c0c14;
+  --bg3: #13131e;
+  --border: rgba(255,255,255,0.06);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f8;
+  --muted: #6b6b88;
+  --muted2: #9898b8;
+  --accent: #c8ff00;
+  --accent-dim: rgba(200,255,0,0.07);
+  --accent-border: rgba(200,255,0,0.2);
+  --gold: #ffb347;
+  --red: #ff5566;
+  --green: #00e5a0;
+  --radius: 14px;
+  --mono: 'DM Mono', monospace;
+  --display: 'Unbounded', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  min-height: 100vh;
+}
+body::before {
+  content:''; position:fixed; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:0; opacity:0.5;
+}
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(5,5,10,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 62px;
+}
+.logo {
+  font-family: var(--display); font-size: 13px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.logo span { color: var(--accent); }
+.logo sub { font-size: 8px; font-weight: 300; color: var(--muted); letter-spacing: 0.15em; display: block; margin-top: -2px; }
+.h-right { display: flex; align-items: center; gap: 1rem; }
+.connect-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #000; border: none;
+  border-radius: 8px; padding: 8px 18px;
+  font-family: var(--display); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s;
+}
+.connect-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,255,0,0.2); }
+.connect-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.wallet-pill {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg3); border: 1px solid var(--accent-border);
+  border-radius: 30px; padding: 5px 14px;
+  font-size: 11px; color: var(--accent);
+}
+.w-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.disc-btn {
+  background: none; border: 1px solid var(--border2); color: var(--muted);
+  border-radius: 6px; padding: 5px 12px; font-family: var(--mono);
+  font-size: 11px; cursor: pointer; transition: all 0.2s;
+}
+.disc-btn:hover { color: var(--red); border-color: var(--red); }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+  position: relative; z-index: 1;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse, rgba(200,255,0,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after { content:''; width:40px; height:1px; background:var(--accent); }
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero-sub { font-size: 12px; color: var(--muted2); margin-bottom: 2.5rem; letter-spacing: 0.08em; }
+
+/* ── STATS ── */
+.stats-row {
+  display: flex; justify-content: center; gap: 3rem;
+  flex-wrap: wrap; margin-bottom: 3rem;
+  position: relative; z-index: 1;
+}
+.stat { text-align: center; }
+.stat-val { font-family: var(--display); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+.stat-lbl { font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+
+/* ── FILTERS ── */
+.filters {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  padding: 0 2rem 1.5rem; position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+}
+.filter-btn {
+  background: var(--bg2); border: 1px solid var(--border2);
+  color: var(--muted2); border-radius: 8px; padding: 7px 16px;
+  font-size: 11px; font-family: var(--mono); cursor: pointer; transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--muted2); color: var(--text); }
+.filter-btn.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+
+/* ── GRID ── */
+.grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem; position: relative; z-index: 1; }
+.nft-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── CARD ── */
+.nft-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  cursor: pointer; transition: all 0.3s;
+  position: relative;
+}
+.nft-card:hover {
+  border-color: rgba(200,255,0,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 50px rgba(200,255,0,0.06);
+}
+.card-art {
+  width: 100%; aspect-ratio: 1;
+  background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4.5rem; position: relative; overflow: hidden;
+}
+.card-art img { width: 100%; height: 100%; object-fit: cover; }
+.card-art::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(200,255,0,0.03), transparent 60%);
+}
+.card-ed {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(0,0,0,0.82); border: 1px solid var(--border2);
+  border-radius: 20px; padding: 3px 9px;
+  font-size: 10px; color: var(--gold); font-family: var(--mono);
+}
+.card-sold-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--display); font-size: 14px; font-weight: 700;
+  color: var(--red); letter-spacing: 0.12em;
+}
+.card-body { padding: 1.25rem; }
+.card-title { font-family: var(--display); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.card-series { font-size: 11px; color: var(--muted2); margin-bottom: 1rem; }
+.card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 0.75rem; border-top: 1px solid var(--border);
+}
+.card-price { font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--accent); }
+.card-status-avail { font-size: 10px; color: var(--green); }
+.card-status-sold { font-size: 10px; color: var(--red); }
+.perp-badge {
+  font-size: 9px; color: var(--accent);
+  background: var(--accent-dim); border: 1px solid var(--accent-border);
+  border-radius: 20px; padding: 1px 7px;
+}
+
+/* ── MODAL ── */
+.overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(6px);
+  z-index: 200; align-items: center; justify-content: center;
+}
+.overlay.open { display: flex; }
+.modal {
+  background: var(--bg2); border: 1px solid var(--border2);
+  border-radius: var(--radius); width: min(560px, 94vw);
+  max-height: 90vh; overflow-y: auto;
+  position: relative; padding: 0;
+}
+.modal-art {
+  width: 100%; aspect-ratio: 1;
+  background: var(--bg3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7rem; border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden; position: relative;
+}
+.modal-art img { width: 100%; height: 100%; object-fit: cover; }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(0,0,0,0.7); border: 1px solid var(--border2);
+  color: var(--text); border-radius: 50%; width: 32px; height: 32px;
+  cursor: pointer; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.modal-body { padding: 1.5rem; }
+.modal-title { font-family: var(--display); font-size: 1.3rem; font-weight: 700; margin-bottom: 4px; }
+.modal-series { font-size: 12px; color: var(--muted2); margin-bottom: 1.25rem; }
+.detail-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.detail-row:last-of-type { border: none; }
+.d-label { color: var(--muted); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+.d-val { font-weight: 500; }
+.modal-desc { font-size: 12px; color: var(--muted2); line-height: 1.7; margin: 1rem 0; padding: 1rem; background: var(--bg3); border-radius: 8px; }
+.buy-btn {
+  width: 100%; background: var(--accent); color: #000;
+  border: none; border-radius: var(--radius);
+  padding: 14px; font-family: var(--display); font-size: 13px;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s; margin-top: 1.25rem;
+  position: relative; overflow: hidden;
+}
+.buy-btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%); transition: transform 0.4s;
+}
+.buy-btn:hover:not(:disabled)::after { transform: translateX(100%); }
+.buy-btn:hover:not(:disabled) { box-shadow: 0 8px 30px rgba(200,255,0,0.2); }
+.buy-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.gas-note { font-size: 10px; color: var(--muted); text-align: center; margin-top: 8px; }
+.sold-banner {
+  text-align: center; padding: 14px;
+  background: rgba(255,85,102,0.08); border: 1px solid rgba(255,85,102,0.2);
+  border-radius: var(--radius); color: var(--red); font-size: 13px;
+  font-family: var(--display); font-weight: 600; margin-top: 1.25rem;
+}
+
+/* ── WALLET REQUIRED ── */
+.wallet-req {
+  text-align: center; padding: 3rem 2rem;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); max-width: 400px; margin: 0 auto;
+}
+.wallet-req h3 { font-family: var(--display); font-size: 1rem; margin-bottom: 0.5rem; }
+.wallet-req p { font-size: 12px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+
+/* ── EMPTY ── */
+.empty {
+  text-align: center; padding: 5rem 2rem;
+  color: var(--muted); grid-column: 1/-1;
+}
+.empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+.empty-msg { font-size: 13px; }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 2rem; right: 2rem;
+  background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 12px 18px;
+  font-size: 12px; font-family: var(--mono);
+  z-index: 500; opacity: 0; transform: translateY(12px);
+  transition: all 0.3s cubic-bezier(.22,1,.36,1); max-width: 340px;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.ok { border-color: var(--green); color: var(--green); }
+.toast.err { border-color: var(--red); color: var(--red); }
+.toast.warn { border-color: var(--gold); color: var(--gold); }
+
+@media(max-width:600px){
+  header { padding: 0 1rem; }
+  .stats-row { gap: 1.5rem; }
+  .filters, .grid-wrap { padding-left: 1rem; padding-right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    VALÉRY <span>GRANCHER</span>
+    <sub>Marketplace NFT</sub>
+  </div>
+  <div class="h-right">
+    <button class="connect-btn" id="connectBtn" onclick="connectCollector()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 18V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V6H12C10.9 6 10 6.9 10 8V16C10 17.1 10.9 18 12 18H21Z" fill="currentColor"/><path d="M12 16H22V8H12V16ZM16 13.5C15.2 13.5 14.5 12.8 14.5 12C14.5 11.2 15.2 10.5 16 10.5C16.8 10.5 17.5 11.2 17.5 12C17.5 12.8 16.8 13.5 16 13.5Z" fill="currentColor"/></svg>
+      Connecter Wallet
+    </button>
+    <div class="wallet-pill" id="walletPill" style="display:none">
+      <div class="w-dot"></div>
+      <span id="walletDisplay"></span>
+    </div>
+    <button class="disc-btn" id="discBtn" style="display:none" onclick="disconnect()">Déconnecter</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Art Numérique — NFT</div>
+  <h1>VALÉRY<br><em>GRANCHER</em></h1>
+  <div class="hero-sub">Œuvres numériques · Royalties 10% · Gas à la charge du collectionneur</div>
+</div>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat"><div class="stat-val" id="statTotal">0</div><div class="stat-lbl">Œuvres</div></div>
+  <div class="stat"><div class="stat-val" id="statAvail">0</div><div class="stat-lbl">Disponibles</div></div>
+  <div class="stat"><div class="stat-val" id="statSold" style="color:var(--gold)">0</div><div class="stat-lbl">Vendues</div></div>
+  <div class="stat"><div class="stat-val" style="color:var(--gold)">10%</div><div class="stat-lbl">Royalties artiste</div></div>
+</div>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filter('all',this)">Toutes</button>
+  <button class="filter-btn" onclick="filter('unique',this)">Pièces uniques</button>
+  <button class="filter-btn" onclick="filter('serie',this)">Séries</button>
+  <button class="filter-btn" onclick="filter('edition',this)">Éditions</button>
+  <button class="filter-btn" onclick="filter('available',this)">Disponibles</button>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="nft-grid" id="nftGrid"></div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal({target:document.getElementById('overlay')})">✕</button>
+    <div class="modal-art" id="modalArt"></div>
+    <div class="modal-body">
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-series" id="modalSeries"></div>
+      <div id="modalDetails"></div>
+      <div id="modalDesc"></div>
+      <div id="modalAction"></div>
+      <div class="gas-note" id="modalGasNote"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = "vg_nfts_v2";
+const ARTIST = "0xa26698254830a4bceb381700cfb0b38a4f146f93";
+
+/* 🔐 Security */
+const Sec = {
+  sanitize(s) {
+    if(typeof s!=='string') return '';
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+            .replace(/"/g,'&quot;').replace(/'/g,'&#x27;').replace(/`/g,'&#x60;');
+  },
+  isEthAddr: a => /^0x[0-9a-fA-F]{40}$/.test(a),
+};
+
+/* 🔐 Rate limiter */
+const RL = {
+  data:{},
+  ok(k, max=5, win=60000) {
+    const now=Date.now();
+    this.data[k]=(this.data[k]||[]).filter(t=>now-t<win);
+    if(this.data[k].length>=max) return false;
+    this.data[k].push(now); return true;
+  }
+};
+
+const state = { wallet: null, filter: 'all', selectedId: null };
+
+/* Load NFTs from localStorage (shared with artist studio) */
+function loadNFTs() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+/* Init */
+updateStats();
+renderGrid();
+// Auto-refresh toutes les 5s pour voir les nouveaux mints
+setInterval(()=>{ renderGrid(); updateStats(); }, 5000);
+
+/* ── CONNECT ── */
+async function connectCollector() {
+  if(!RL.ok('connect')) { showToast('Trop de tentatives','err'); return; }
+  if(typeof window.ethereum==='undefined'){
+    showToast('MetaMask non détecté','err');
+    setTimeout(()=>window.open('https://metamask.io/download/','_blank','noopener'),1500);
+    return;
+  }
+  const btn=document.getElementById('connectBtn');
+  btn.disabled=true; btn.textContent='⟳ Connexion…';
+  try {
+    const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
+    const addr=accounts[0];
+    if(!Sec.isEthAddr(addr)) throw new Error("Adresse invalide");
+    state.wallet=addr.toLowerCase();
+    document.getElementById('walletDisplay').textContent=addr.slice(0,6)+'…'+addr.slice(-4);
+    document.getElementById('walletPill').style.display='flex';
+    document.getElementById('connectBtn').style.display='none';
+    document.getElementById('discBtn').style.display='block';
+    showToast('Wallet connecté — Bienvenue !','ok');
+    renderGrid();
+    window.ethereum.on('accountsChanged',a=>{if(!a.length)disconnect();});
+  } catch(e) {
+    showToast(e.code===4001?'Connexion refusée':'Erreur: '+e.message,'err');
+    btn.disabled=false;
+    btn.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 18V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V5C3 3.9 3.9 3 5 3H19C20.1 3 21 3.9 21 5V6H12C10.9 6 10 6.9 10 8V16C10 17.1 10.9 18 12 18H21Z" fill="currentColor"/><path d="M12 16H22V8H12V16ZM16 13.5C15.2 13.5 14.5 12.8 14.5 12C14.5 11.2 15.2 10.5 16 10.5C16.8 10.5 17.5 11.2 17.5 12C17.5 12.8 16.8 13.5 16 13.5Z" fill="currentColor"/></svg> Connecter Wallet';
+  }
+}
+
+function disconnect() {
+  state.wallet=null;
+  document.getElementById('walletPill').style.display='none';
+  document.getElementById('connectBtn').style.display='flex';
+  document.getElementById('discBtn').style.display='none';
+  showToast('Déconnecté');
+  renderGrid();
+}
+
+/* ── FILTER ── */
+function filter(f, el) {
+  state.filter=f;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  renderGrid();
+}
+
+/* ── RENDER GRID ── */
+function renderGrid() {
+  const nfts=loadNFTs();
+  updateStats(nfts);
+  const grid=document.getElementById('nftGrid');
+  grid.innerHTML='';
+  let list=nfts;
+  if(state.filter==='available') list=nfts.filter(n=>n.available);
+  else if(state.filter!=='all') list=nfts.filter(n=>n.type===state.filter);
+
+  if(!list.length){
+    const d=document.createElement('div'); d.className='empty';
+    const ic=document.createElement('div'); ic.className='empty-icon'; ic.textContent='◻';
+    const m=document.createElement('div'); m.className='empty-msg';
+    m.textContent=nfts.length?'Aucune œuvre dans cette catégorie':'Aucune œuvre disponible pour le moment';
+    d.append(ic,m); grid.appendChild(d); return;
+  }
+
+  list.forEach(nft=>{
+    const card=document.createElement('div');
+    card.className='nft-card';
+    card.addEventListener('click',()=>openModal(nft.id));
+
+    // Art
+    const art=document.createElement('div'); art.className='card-art';
+    if(nft.imgData){
+      const img=document.createElement('img'); img.src=nft.imgData; img.alt='';
+      art.appendChild(img);
+    } else {
+      art.textContent=nft.emoji||'◈';
+    }
+    const ed=document.createElement('div'); ed.className='card-ed'; ed.textContent=nft.edition;
+    art.appendChild(ed);
+    if(!nft.available){
+      const ov=document.createElement('div'); ov.className='card-sold-overlay'; ov.textContent='VENDU';
+      art.appendChild(ov);
+    }
+
+    // Body
+    const body=document.createElement('div'); body.className='card-body';
+    const title=document.createElement('div'); title.className='card-title'; title.textContent=nft.title;
+    const series=document.createElement('div'); series.className='card-series';
+    series.textContent=nft.series||typeLabel(nft.type);
+    if(nft.duration==='perpetuel'){
+      const b=document.createElement('span'); b.className='perp-badge'; b.textContent='∞';
+      series.appendChild(document.createTextNode(' ')); series.appendChild(b);
+    }
+    const footer=document.createElement('div'); footer.className='card-footer';
+    const price=document.createElement('div'); price.className='card-price'; price.textContent=nft.price+' ETH';
+    const status=document.createElement('div');
+    status.className=nft.available?'card-status-avail':'card-status-sold';
+    status.textContent=nft.available?'● Disponible':'● Vendu';
+    footer.append(price,status);
+    body.append(title,series,footer);
+    card.append(art,body);
+    grid.appendChild(card);
+  });
+}
+
+function typeLabel(t){ return t==='unique'?'Pièce unique':t==='serie'?'Série':'Édition limitée'; }
+
+/* ── STATS ── */
+function updateStats(nfts) {
+  if(!nfts) nfts=loadNFTs();
+  document.getElementById('statTotal').textContent=nfts.length;
+  document.getElementById('statAvail').textContent=nfts.filter(n=>n.available).length;
+  document.getElementById('statSold').textContent=nfts.filter(n=>!n.available).length;
+}
+
+/* ── MODAL ── */
+function openModal(id) {
+  const nft=loadNFTs().find(n=>n.id===id);
+  if(!nft) return;
+  state.selectedId=id;
+
+  // Art
+  const art=document.getElementById('modalArt');
+  art.innerHTML='';
+  if(nft.imgData){
+    const img=document.createElement('img'); img.src=nft.imgData; img.alt='';
+    art.appendChild(img);
+  } else {
+    art.textContent=nft.emoji||'◈';
+  }
+
+  // Text (textContent only)
+  document.getElementById('modalTitle').textContent=nft.title;
+  document.getElementById('modalSeries').textContent=nft.series||typeLabel(nft.type);
+
+  // Details rows
+  const det=document.getElementById('modalDetails');
+  det.innerHTML='';
+  const rows=[
+    ['Type',typeLabel(nft.type)],
+    ['Édition',nft.edition],
+    ['Prix',nft.price+' ETH'],
+    ['Royalties','10% à l\'artiste (EIP-2981)'],
+    ['Durée',nft.duration==='perpetuel'?'∞ Perpétuelle':nft.duration],
+    ['Statut',nft.available?'Disponible':'Vendu'],
+    ['Mintée le',new Date(nft.mintedAt).toLocaleDateString('fr')],
+  ];
+  rows.forEach(([l,v])=>{
+    const row=document.createElement('div'); row.className='detail-row';
+    const dl=document.createElement('span'); dl.className='d-label'; dl.textContent=l;
+    const dv=document.createElement('span'); dv.className='d-val'; dv.textContent=v;
+    if(l==='Prix') dv.style.color='var(--accent)';
+    if(l==='Royalties') dv.style.color='var(--gold)';
+    if(l==='Statut') dv.style.color=nft.available?'var(--green)':'var(--red)';
+    row.append(dl,dv); det.appendChild(row);
+  });
+
+  // Description
+  const descEl=document.getElementById('modalDesc');
+  if(nft.desc){
+    descEl.innerHTML='';
+    const d=document.createElement('div'); d.className='modal-desc'; d.textContent=nft.desc;
+    descEl.appendChild(d);
+  } else descEl.innerHTML='';
+
+  // Action button
+  const act=document.getElementById('modalAction');
+  const gas=document.getElementById('modalGasNote');
+  act.innerHTML='';
+  gas.textContent='';
+  if(nft.available){
+    if(!state.wallet){
+      const wr=document.createElement('div'); wr.className='wallet-req';
+      const h=document.createElement('h3'); h.textContent='Wallet requis';
+      const p=document.createElement('p'); p.textContent='Connectez votre wallet MetaMask pour acquérir cette œuvre.';
+      const b=document.createElement('button'); b.className='connect-btn'; b.style.cssText='margin:0 auto;display:flex';
+      b.textContent='Connecter MetaMask'; b.onclick=()=>{ closeModal({target:document.getElementById('overlay')}); connectCollector(); };
+      wr.append(h,p,b); act.appendChild(wr);
+    } else if(state.wallet===ARTIST){
+      const d=document.createElement('div'); d.style.cssText='text-align:center;padding:1rem;color:var(--muted);font-size:12px';
+      d.textContent="L'artiste ne peut pas acheter ses propres œuvres.";
+      act.appendChild(d);
+    } else {
+      const btn=document.createElement('button'); btn.className='buy-btn';
+      btn.textContent=`Acheter — ${nft.price} ETH`;
+      btn.onclick=()=>buyNFT(id);
+      act.appendChild(btn);
+      const gn=document.createElement('p'); gn.className='gas-note';
+      gn.textContent='⚡ Frais de gas (réseau Ethereum) à votre charge';
+      gas.textContent='⚡ Frais de gas (réseau Ethereum) à votre charge';
+    }
+  } else {
+    const d=document.createElement('div'); d.className='sold-banner'; d.textContent='VENDU';
+    act.appendChild(d);
+  }
+
+  document.getElementById('overlay').classList.add('open');
+}
+
+function closeModal(e){
+  if(e.target===document.getElementById('overlay')){
+    document.getElementById('overlay').classList.remove('open');
+  }
+}
+
+/* ── BUY ── */
+async function buyNFT(id) {
+  if(!RL.ok('buy',3,30000)){ showToast('Trop de transactions — patientez','err'); return; }
+  const nfts=loadNFTs();
+  const nft=nfts.find(n=>n.id===id);
+  if(!nft||!nft.available) return;
+
+  const act=document.getElementById('modalAction');
+  const btn=act.querySelector('.buy-btn');
+  if(btn){ btn.disabled=true; btn.textContent='⟳ Transaction en cours…'; }
+
+  await new Promise(r=>setTimeout(r,2400));
+
+  // Marquer comme vendu dans localStorage
+  nft.available=false;
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(nfts)); } catch(e){}
+
+  document.getElementById('overlay').classList.remove('open');
+  renderGrid(); updateStats();
+  showToast(`✦ "${nft.title}" acquis ! 10% versés à l'artiste.`,'ok');
+}
+
+/* ── TOAST ── */
+function showToast(msg, type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast show '+(type||'');
+  setTimeout(()=>t.className='toast',3500);
+}
+
+// Load ethers
+if(typeof ethers==='undefined'){
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js';
+  s.crossOrigin='anonymous'; document.head.appendChild(s);
+}
+</script>
+</body>
+</html>
