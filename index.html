@@ -6,5 +6,59 @@
 \deftab720
 \pard\pardeftab720\partightenfactor0
 
-\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 <!DOCTYPE html> <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Val\'e9ry Grancher \'97 Studio</title> <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.infura.io https://*.alchemy.com wss://*.infura.io wss://*.alchemy.com https://api.pinata.cloud https://gateway.pinata.cloud https://*.mypinata.cloud; img-src 'self' data: blob: https://gateway.pinata.cloud https://*.mypinata.cloud; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"> <meta http-equiv="X-Frame-Options" content="DENY"> <meta name="referrer" content="same-origin"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet"> <style> /* CONSERVATION INT\'c9GRALE DE VOTRE CHARTE GRAPHIQUE */ :root \{ --bg: #0a0a0a; --text: #e0e0e0; --accent: #00ff88; --err: #ff4444; --panel: #161616; --border: #333; --glass: rgba(255,255,255,0.03); \} * \{ box-sizing: border-box; cursor: crosshair; \} body \{ background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; height: 100vh; overflow: hidden; \} /* \'c9CRAN DE VERROUILLAGE ORIGINAL */ #lockScreen \{ position: fixed; inset: 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(15px); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease; \} .btn-connect \{ background: var(--accent); color: #000; border: none; padding: 15px 40px; font-weight: 900; cursor: pointer; border-radius: 4px; font-size: 1.1rem; transition: all 0.3s; letter-spacing: 2px; \} .btn-connect:hover \{ transform: scale(1.05); box-shadow: 0 0 30px rgba(0,255,136,0.4); \} /* ... [Le reste de votre CSS original est pr\'e9serv\'e9 ici] ... */ </style> </head> <body> <div id="lockScreen"> <h1 style="letter-spacing:10px; font-weight:200; color:#fff;">VAL\'c9RY GRANCHER</h1> <p style="opacity:0.5; margin-bottom:40px; font-size:0.8rem; letter-spacing:4px;">STUDIO ARTISTE \'97 ACC\'c8S PRIV\'c9</p> <button class="btn-connect" onclick="connectArtist()">CONNECTER METAMASK</button> <p id="statusMsg" style="margin-top:25px; font-family:'JetBrains Mono'; font-size:0.7rem; color:var(--accent);"></p> </div> <div id="sidebar"> <div class="brand">VG STUDIO <span style="font-size:0.6rem; opacity:0.5;">v2.0</span></div> <div class="nav-item active" onclick="switchTab('mint')">MINT_COLLECTION</div> </div> <script> /* LOGIQUE DE CONNEXION D\'c9BLOQU\'c9E */ const ARTIST = "0xa26698254830a4bceb381700cfb0b38a4f146f93".toLowerCase(); async function connectArtist() \{ const btn = document.querySelector('.btn-connect'); const msg = document.getElementById('statusMsg'); try \{ if (!window.ethereum) \{ alert("MetaMask n'est pas d\'e9tect\'e9. Veuillez l'activer."); return; \} btn.disabled = true; msg.textContent = "> INITIALIZING_AUTH..."; // Utilisation d'Ethers v6 (syntaxe corrig\'e9e) const provider = new ethers.BrowserProvider(window.ethereum); const accounts = await provider.send("eth_requestAccounts", []); const userAddress = accounts[0].toLowerCase(); if (userAddress !== ARTIST) \{ msg.style.color = "var(--err)"; msg.textContent = "> ERROR: UNAUTHORIZED_WALLET"; btn.disabled = false; return; \} msg.textContent = "> PENDING_SIGNATURE..."; const signer = await provider.getSigner(); const message = "Val\'e9ry Grancher Studio Access\\nSession: " + Date.now(); await signer.signMessage(message); msg.textContent = "> ACCESS_GRANTED"; document.getElementById('lockScreen').style.opacity = '0'; setTimeout(() => \{ document.getElementById('lockScreen').style.display = 'none'; \}, 800); \} catch (err) \{ console.error(err); msg.style.color = "var(--err)"; msg.textContent = "> ERR: " + (err.code === 4001 ? "USER_REJECTED" : "CONNECTION_FAILED"); btn.disabled = false; \} \} /* R\'c9INT\'c9GRATION DE VOS FONCTIONS ORIGINALES (IPFS, MINT, PREVIEW, ETC.) */ // [Collez ici la suite de vos fonctions originales : updatePreview, AuditLog, etc.] </script> </body></html>}
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valéry Grancher — Studio Admin</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;900&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #06060a; --accent: #beff09; --text: #ececf6; --sub: #585775; --panel: #100f17; --err: #fc3b54; }
+        body { background-color: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        #lockScreen { text-align: center; }
+        .brand { font-size: 26px; font-weight: 900; color: var(--accent); letter-spacing: 5px; }
+        .btn-main { background: var(--accent); color: var(--bg); border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        #adminPanel { display: none; width: 100%; max-width: 500px; background: var(--panel); padding: 40px; border-radius: 4px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; color: var(--sub); font-size: 10px; text-transform: uppercase; margin-bottom: 8px; }
+        input, textarea, select { width: 100%; background: #1a1923; border: 1px solid #2d2c39; color: white; padding: 12px; }
+    </style>
+</head>
+<body>
+    <div id="lockScreen">
+        <div class="brand">VALÉRY GRANCHER</div>
+        <p style="color:var(--sub)">ACCÈS STUDIO PRIVÉ</p>
+        <button class="btn-main" onclick="connect()">CONNECTER METAMASK</button>
+        <p id="status" style="font-size:10px; margin-top:10px;"></p>
+    </div>
+
+    <div id="adminPanel">
+        <h2 style="font-weight:200">ÉDITION_OEUVRE</h2>
+        <div class="form-group"><label>Titre</label><input type="text" id="title"></div>
+        <div style="display:flex; gap:15px">
+            <div class="form-group" style="flex:2"><label>Série / Collection</label><input type="text" id="series"></div>
+            <div class="form-group" style="flex:1"><label>Édition (0-100)</label><select id="edition"></select></div>
+        </div>
+        <div class="form-group"><label>Prix (ETH)</label><input type="number" step="0.01" id="price"></div>
+        <div class="form-group"><label>Description</label><textarea id="desc" rows="4"></textarea></div>
+        <button class="btn-main" style="width:100%" onclick="alert('Données prêtes')">ENREGISTRER</button>
+    </div>
+
+    <script>
+        const AUTHORIZED = "0xa26698254830a4bceb381700cfb0b38a4f146f93".toLowerCase();
+        const sel = document.getElementById('edition');
+        for(let i=0; i<=100; i++) { sel.options[sel.options.length] = new Option(i === 0 ? "Unique" : "Édition "+i, i); }
+        async function connect() {
+            if (!window.ethereum) return alert("Installez MetaMask");
+            const provider = new ethers.BrowserProvider(window.ethereum);
+            const acc = await provider.send("eth_requestAccounts", []);
+            if (acc[0].toLowerCase() === AUTHORIZED) {
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+            } else { document.getElementById('status').innerText = "ACCÈS REFUSÉ"; }
+        }
+    </script>
+</body>
+</html>
