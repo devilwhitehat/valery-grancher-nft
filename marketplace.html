@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///Users/vgrancher/Downloads/marketplace%20(10).html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valéry Grancher — Marketplace</title>
+<meta name="description" content="Œuvres numériques de Valéry Grancher — Collections NFT">
+
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;self&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src &#39;self&#39; &#39;unsafe-inline&#39; https://fonts.googleapis.com; font-src &#39;self&#39; https://fonts.gstatic.com data:; connect-src &#39;self&#39; https://*.infura.io https://*.alchemy.com wss://*.infura.io https://api.pinata.cloud https://gateway.pinata.cloud https://*.mypinata.cloud https://ipfs.io; img-src &#39;self&#39; data: blob: https://gateway.pinata.cloud https://*.mypinata.cloud https://ipfs.io; media-src &#39;self&#39; data: blob: https://gateway.pinata.cloud https://*.mypinata.cloud https://ipfs.io; object-src &#39;none&#39;; base-uri &#39;self&#39;; frame-ancestors &#39;none&#39;;">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Valéry Grancher — Marketplace_files/css2" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #05050a; --bg2: #0c0c14; --bg3: #13131e; --bg4: #1a1a28;
+  --border: rgba(255,255,255,0.06); --border2: rgba(255,255,255,0.12);
+  --text: #f0f0f8; --muted: #6b6b88; --muted2: #9898b8;
+  --accent: #c8ff00; --accent-dim: rgba(200,255,0,0.08); --accent-border: rgba(200,255,0,0.25);
+  --gold: #ffb347; --red: #ff5566; --green: #00e5a0;
+  --radius: 12px; --mono: 'DM Mono', monospace; --display: 'Unbounded', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.6}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:200;background:rgba(5,5,10,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:64px}
+.h-brand{display:flex;flex-direction:column}
+.h-brand-name{font-family:var(--display);font-size:14px;font-weight:700;letter-spacing:.1em}
+.h-brand-name span{color:var(--accent)}
+.h-brand-sub{font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase}
+.h-right{display:flex;align-items:center;gap:1rem}
+.wallet-pill{display:flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid var(--border2);border-radius:30px;padding:6px 14px;font-size:11px;color:var(--muted2);font-family:var(--mono);cursor:pointer;transition:all .2s;white-space:nowrap}
+.wallet-pill:hover{border-color:var(--accent-border);color:var(--text)}
+.wallet-pill.connected{border-color:var(--accent-border);color:var(--accent)}
+.wallet-dot{width:6px;height:6px;border-radius:50%;background:var(--muted2);flex-shrink:0}
+.wallet-dot.on{background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.btn-studio{background:none;border:1px solid var(--border2);color:var(--muted);padding:6px 14px;border-radius:8px;font-family:var(--mono);font-size:10px;cursor:pointer;transition:all .2s}
+.btn-studio:hover{color:var(--text)}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:5rem 2.5rem 3.5rem;max-width:1200px;margin:0 auto;text-align:center}
+.hero-eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:12px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:var(--accent-border)}
+.hero-title{font-family:var(--display);font-size:clamp(2rem,6vw,3.6rem);font-weight:700;line-height:1.1;margin-bottom:1.25rem;letter-spacing:-.02em}
+.hero-title span{color:var(--accent)}
+.hero-desc{font-size:13px;color:var(--muted2);max-width:500px;margin:0 auto 2.5rem;line-height:1.8}
+.hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center}
+.stat-val{font-family:var(--display);font-size:1.6rem;font-weight:700;color:var(--accent)}
+.stat-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* VIEW TOGGLE */
+.view-toggle{max-width:1200px;margin:0 auto;padding:0 2.5rem 1.5rem;display:flex;align-items:center;gap:8px;position:relative;z-index:1;flex-wrap:wrap}
+.view-btn{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:7px 14px;font-size:11px;font-family:var(--mono);color:var(--muted2);cursor:pointer;transition:all .2s}
+.view-btn:hover{border-color:var(--muted2);color:var(--text)}
+.view-btn.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.view-sep{flex:1}
+.sort-select{background:var(--bg3);border:1px solid var(--border2);border-radius:8px;padding:7px 12px;font-size:11px;font-family:var(--mono);color:var(--text);cursor:pointer;outline:none}
+.sort-select option{background:var(--bg3)}
+
+/* MAIN */
+.main-wrap{max-width:1200px;margin:0 auto;padding:0 2.5rem 5rem;position:relative;z-index:1}
+@media(max-width:600px){.main-wrap{padding:0 1rem 3rem}}
+
+/* COLLECTION BLOCK */
+.collection-block{margin-bottom:2rem;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s}
+.collection-block:hover{border-color:var(--border2)}
+.collection-header{display:flex;align-items:center;gap:1.25rem;padding:1.25rem 1.5rem;cursor:pointer;background:var(--bg2);transition:background .2s;user-select:none}
+.collection-header:hover{background:var(--bg3)}
+.col-thumbs{display:flex;flex-shrink:0}
+.col-thumb{width:52px;height:52px;border-radius:8px;background:var(--bg3);border:2px solid var(--bg2);overflow:hidden;margin-left:-10px;position:relative;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.col-thumb:first-child{margin-left:0}
+.col-thumb img,.col-thumb video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.col-thumb-more{background:var(--bg4);border:2px solid var(--bg2);font-size:9px;font-family:var(--mono);color:var(--muted2);font-weight:600}
+.col-info{flex:1;min-width:0}
+.col-name{font-family:var(--display);font-size:14px;font-weight:700;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.col-meta{font-size:10px;color:var(--muted);display:flex;gap:1rem;flex-wrap:wrap}
+.col-avail{color:var(--green)}
+.col-price{color:var(--accent);font-family:var(--display);font-weight:600}
+.col-arrow{width:28px;height:28px;border-radius:50%;border:1px solid var(--border2);background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .25s;color:var(--muted2);font-size:11px}
+.collection-block.open .col-arrow{transform:rotate(180deg);background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.collection-body{display:none;padding:1.5rem;background:var(--bg);border-top:1px solid var(--border)}
+.collection-block.open .collection-body{display:block}
+
+/* NFT GRID */
+.nft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.1rem}
+@media(max-width:600px){.nft-grid{grid-template-columns:1fr 1fr;gap:.75rem}}
+.flat-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem}
+
+/* NFT CARD */
+.nft-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .25s cubic-bezier(.22,1,.36,1);cursor:pointer}
+.nft-card:hover{border-color:var(--accent-border);transform:translateY(-3px);box-shadow:0 16px 50px rgba(0,0,0,.35)}
+.nft-card-media{width:100%;aspect-ratio:1;background:var(--bg3);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.nft-card-media img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .35s}
+.nft-card:hover .nft-card-media img{transform:scale(1.06)}
+.nft-card-media video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.video-badge{position:absolute;bottom:8px;left:8px;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);border:1px solid var(--border2);border-radius:4px;padding:2px 7px;font-size:9px;color:var(--text);display:flex;align-items:center;gap:4px}
+.play-icon{color:var(--accent)}
+.nft-badge{position:absolute;top:8px;left:8px;background:rgba(0,0,0,.72);backdrop-filter:blur(10px);border:1px solid var(--border2);border-radius:14px;padding:2px 8px;font-size:8px;color:var(--gold);font-family:var(--mono)}
+.nft-sold-overlay{position:absolute;inset:0;background:rgba(5,5,10,.65);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--muted);backdrop-filter:blur(2px)}
+.nft-card-body{padding:.9rem}
+.nft-card-title{font-family:var(--display);font-size:11px;font-weight:600;margin-bottom:6px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.flat-grid .nft-card-title{font-size:13px}
+.nft-card-footer{display:flex;align-items:center;justify-content:space-between}
+.nft-card-price{font-family:var(--display);font-size:13px;font-weight:700;color:var(--accent)}
+.flat-grid .nft-card-price{font-size:15px}
+.btn-buy{background:var(--accent);color:#000;border:none;border-radius:6px;padding:5px 12px;font-family:var(--display);font-size:10px;font-weight:700;cursor:pointer;transition:all .2s}
+.btn-buy:hover{box-shadow:0 4px 14px rgba(200,255,0,.3)}
+.btn-buy:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+.flat-grid .btn-buy{padding:7px 16px;font-size:11px}
+
+/* EMPTY / LOADING */
+.state-box{text-align:center;padding:6rem 2rem;color:var(--muted)}
+.state-box .sicon{font-size:3rem;margin-bottom:1.5rem;opacity:.35}
+.state-box .stitle{font-family:var(--display);font-size:14px;font-weight:600;margin-bottom:8px;color:var(--muted2)}
+.state-box .ssub{font-size:11px;line-height:1.7}
+.spinner-big{width:36px;height:36px;border:3px solid rgba(200,255,0,.15);border-top-color:var(--accent);border-radius:50%;animation:spin .9s linear infinite;margin:0 auto 1.5rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-bg.show{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;width:100%;max-width:580px;max-height:93vh;overflow-y:auto;animation:slideUp .28s cubic-bezier(.22,1,.36,1)}
+@keyframes slideUp{from{transform:translateY(28px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-media-wrap{width:100%;aspect-ratio:1;background:#000;border-radius:16px 16px 0 0;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:6rem}
+.modal-media-wrap img{width:100%;height:100%;object-fit:contain;position:absolute;inset:0}
+.modal-media-wrap video{width:100%;height:100%;object-fit:contain}
+.modal-close{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.55);border:1px solid var(--border2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted2);font-size:14px;transition:all .2s;backdrop-filter:blur(10px);z-index:10}
+.modal-close:hover{color:var(--text)}
+.modal-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:1px solid var(--border2);border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);font-size:16px;transition:all .2s;backdrop-filter:blur(10px);z-index:10}
+.modal-nav:hover{background:rgba(0,0,0,.85)}
+.modal-nav-prev{left:12px}
+.modal-nav-next{right:12px}
+.modal-body{padding:1.75rem}
+.modal-collection{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.modal-title{font-family:var(--display);font-size:1.2rem;font-weight:700;margin-bottom:6px;line-height:1.3}
+.modal-desc{font-size:12px;color:var(--muted2);line-height:1.8;margin-bottom:1.25rem}
+.ipfs-tag{display:inline-flex;align-items:center;gap:4px;font-size:9px;color:var(--muted);background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:2px 7px;margin-bottom:1rem;text-decoration:none;transition:color .2s}
+.ipfs-tag:hover{color:var(--accent)}
+.modal-meta{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.25rem}
+.modal-meta-item{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:9px 12px}
+.modal-meta-label{font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.modal-meta-val{font-size:11px;color:var(--text);font-weight:500}
+.modal-price-row{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.25rem;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:var(--radius);margin-bottom:1rem}
+.modal-price{font-family:var(--display);font-size:1.4rem;font-weight:700;color:var(--accent)}
+.modal-royalty{font-size:10px;color:var(--gold)}
+.btn-buy-modal{width:100%;background:var(--accent);color:#000;border:none;border-radius:var(--radius);padding:14px;font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:all .2s}
+.btn-buy-modal:hover:not(:disabled){box-shadow:0 10px 30px rgba(200,255,0,.25);transform:translateY(-2px)}
+.btn-buy-modal:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.modal-nav-counter{text-align:center;font-size:10px;color:var(--muted);margin-top:.75rem;letter-spacing:.1em}
+
+/* FOOTER */
+footer{position:relative;z-index:1;border-top:1px solid var(--border);padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;font-size:10px;color:var(--muted);flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--display);font-size:11px;font-weight:700}
+.footer-brand span{color:var(--accent)}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:12px 18px;font-size:12px;font-family:var(--mono);z-index:700;opacity:0;transform:translateY(12px);transition:all .3s cubic-bezier(.22,1,.36,1);max-width:340px}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.ok{border-color:var(--green);color:var(--green)}
+.toast.err{border-color:var(--red);color:var(--red)}
+.toast.warn{border-color:var(--gold);color:var(--gold)}
+</style>
+<style>
+      #france-verif-popup {
+        z-index: 2147483650 !important;
+      }
+      #userlike {
+        z-index: 0;
+        position: fixed;
+      }
+      #honeyContainer {
+          position: fixed;
+          z-index: 100;
+      }
+      #france-verif-popup div:empty {
+        display: block !important;
+        pointer-events: none;
+        height: inherit !important;
+      }
+      #france-verif-popup:focus, #france-verif-popup div:focus{
+        outline: none !important;
+      }
+      .france-verif-modal div:empty {
+        height: inherit !important;
+      }
+      .france-verif-modal:before{
+          content:'';
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          background: rgba(0, 0, 0, 0.4) !important;
+      }
+    </style><style data-styled="active" data-styled-version="5.3.11"></style><style>.BDTLL_status {
+    cursor: pointer;
+    display: inline;
+    margin-right: 3px;
+    width: 16px;
+    height: 16px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3BhZ2VzL2NvbXBvbmVudHMvdG9vbHRpcC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxlQUFlO0lBQ2YsZUFBZTtJQUNmLGlCQUFpQjtJQUNqQixXQUFXO0lBQ1gsWUFBWTtBQUNoQiIsInNvdXJjZXNDb250ZW50IjpbIi5CRFRMTF9zdGF0dXMge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBkaXNwbGF5OiBpbmxpbmU7XG4gICAgbWFyZ2luLXJpZ2h0OiAzcHg7XG4gICAgd2lkdGg6IDE2cHg7XG4gICAgaGVpZ2h0OiAxNnB4O1xufSJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.BDTLL_icon_ok {
+    background-image: url(data:image/png;base64,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);
+}
+
+.BDTLL_icon_critical {
+    background-image: url(data:image/png;base64,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);
+}
+
+.BDTLL_icon_alert {
+    background-image: url(data:image/png;base64,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);
+}
+
+.BDTLL_icon_disabled {
+    background-image: url(data:image/png;base64,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);
+}
+
+.BDTLL_icon_whitelisted {
+    background-image: url(data:image/png;base64,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);
+}
+
+.BDTLL_Search_Popup {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', system-ui;
+
+	position: absolute !important;
+	min-height: 70px !important;
+
+	border-style: solid !important;
+	border-width: 1px !important;
+	border-radius: 5px !important;
+
+	overflow: hidden !important;
+	z-index: 999999999999999 !important;
+
+    background-color: rgb(255, 255, 255) !important;
+    border-color: rgba(100, 100, 100, 0.9) !important;
+}
+
+.BDTLL_Search_Popup > .BDTLL_left_box {
+	position: absolute !important;
+	top: 0px !important;
+	height: auto !important;
+	bottom: 0px !important;
+
+	left: 0px !important;
+	width: 92px !important;
+
+	background-size: 50px 50px !important;
+	background-repeat: no-repeat !important;
+	background-position: center !important;
+
+    background-color: rgb(240, 242, 246) !important;
+}
+
+.BDTLL_Search_Popup > .BDTLL_right_box {
+	display: inline-block !important;
+	margin-left: 92px !important;
+	width: 210pt !important;
+
+	box-sizing: border-box !important;
+	padding-left: 10px !important;
+    padding-right: 5px !important;
+}
+
+.BDTLL_Search_Popup p {
+    white-space: pre-wrap !important;
+    word-wrap: normal !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    text-align: left;
+}
+
+.BDTLL_Search_Popup .BDTLL_title {
+	font-size: 16px !important;
+	margin-top: 12px !important;
+}
+
+.BDTLL_Search_Popup .BDTLL_description {
+	font-size: 12px !important;
+	margin-top: 5px !important;
+}
+
+.BDTLL_Search_Popup .BDTLL_web_protection {
+	font-size: 11px !important;
+	margin-top: 15px !important;
+	margin-bottom: 10px !important;
+}
+
+.BDTLL_Search_Popup .BDTLL_strong {
+    color: rgb(7, 20, 45) !important;
+}
+
+.BDTLL_Search_Popup .BDTLL_mild {
+    color: rgb(81, 91, 109) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .BDTLL_Search_Popup {
+        background-color: rgb(56, 67, 87) !important;
+        border-color: rgba(169, 169, 169, 0.9) !important;
+    }
+
+    .BDTLL_Search_Popup > .BDTLL_left_box {
+        background-color: rgb(7, 20, 45) !important;
+    }
+
+    .BDTLL_Search_Popup .BDTLL_strong {
+        color: rgb(239, 241, 249) !important;
+    }
+    
+    .BDTLL_Search_Popup .BDTLL_mild {
+        color: rgb(217, 217, 217) !important;
+    }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3BhZ2VzL2FuYWx5emVyUG9wdXAvYW5hbHl6ZXJQYWdlU3RhdHVzLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHlEQUFnRDtBQUNwRDs7QUFFQTtJQUNJLHlEQUFzRDtBQUMxRDs7QUFFQTtJQUNJLHlEQUFtRDtBQUN2RDs7QUFFQTtJQUNJLHlEQUFzRDtBQUMxRDs7QUFFQTtJQUNJLHlEQUF5RDtBQUM3RDs7QUFFQTtJQUNJLCtFQUErRTs7Q0FFbEYsNkJBQTZCO0NBQzdCLDJCQUEyQjs7Q0FFM0IsOEJBQThCO0NBQzlCLDRCQUE0QjtDQUM1Qiw2QkFBNkI7O0NBRTdCLDJCQUEyQjtDQUMzQixtQ0FBbUM7O0lBRWhDLCtDQUErQztJQUMvQyxpREFBaUQ7QUFDckQ7O0FBRUE7Q0FDQyw2QkFBNkI7Q0FDN0IsbUJBQW1CO0NBQ25CLHVCQUF1QjtDQUN2QixzQkFBc0I7O0NBRXRCLG9CQUFvQjtDQUNwQixzQkFBc0I7O0NBRXRCLHFDQUFxQztDQUNyQyx1Q0FBdUM7Q0FDdkMsc0NBQXNDOztJQUVuQywrQ0FBK0M7QUFDbkQ7O0FBRUE7Q0FDQyxnQ0FBZ0M7Q0FDaEMsNEJBQTRCO0NBQzVCLHVCQUF1Qjs7Q0FFdkIsaUNBQWlDO0NBQ2pDLDZCQUE2QjtJQUMxQiw2QkFBNkI7QUFDakM7O0FBRUE7SUFDSSxnQ0FBZ0M7SUFDaEMsNEJBQTRCO0lBQzVCLHNCQUFzQjtJQUN0Qix1QkFBdUI7SUFDdkIsZ0JBQWdCO0FBQ3BCOztBQUVBO0NBQ0MsMEJBQTBCO0NBQzFCLDJCQUEyQjtBQUM1Qjs7QUFFQTtDQUNDLDBCQUEwQjtDQUMxQiwwQkFBMEI7QUFDM0I7O0FBRUE7Q0FDQywwQkFBMEI7Q0FDMUIsMkJBQTJCO0NBQzNCLDhCQUE4QjtBQUMvQjs7QUFFQTtJQUNJLGdDQUFnQztBQUNwQzs7QUFFQTtJQUNJLGtDQUFrQztBQUN0Qzs7QUFFQTtJQUNJO1FBQ0ksNENBQTRDO1FBQzVDLGlEQUFpRDtJQUNyRDs7SUFFQTtRQUNJLDJDQUEyQztJQUMvQzs7SUFFQTtRQUNJLG9DQUFvQztJQUN4Qzs7SUFFQTtRQUNJLG9DQUFvQztJQUN4QztBQUNKIiwic291cmNlc0NvbnRlbnQiOlsiLkJEVExMX2ljb25fb2sge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi9pbWcvYW5hbHl6ZXJfb2sucG5nKTtcbn1cblxuLkJEVExMX2ljb25fY3JpdGljYWwge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi9pbWcvYW5hbHl6ZXJfY3JpdGljYWwucG5nKTtcbn1cblxuLkJEVExMX2ljb25fYWxlcnQge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi9pbWcvYW5hbHl6ZXJfYWxlcnQucG5nKTtcbn1cblxuLkJEVExMX2ljb25fZGlzYWJsZWQge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi9pbWcvYW5hbHl6ZXJfZGlzYWJsZWQucG5nKTtcbn1cblxuLkJEVExMX2ljb25fd2hpdGVsaXN0ZWQge1xuICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCguLi8uLi9pbWcvYW5hbHl6ZXJfd2hpdGVsaXN0ZWQucG5nKTtcbn1cblxuLkJEVExMX1NlYXJjaF9Qb3B1cCB7XG4gICAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgJ1NlZ29lIFVJJywgJ1JvYm90bycsIHN5c3RlbS11aTtcblxuXHRwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcblx0bWluLWhlaWdodDogNzBweCAhaW1wb3J0YW50O1xuXG5cdGJvcmRlci1zdHlsZTogc29saWQgIWltcG9ydGFudDtcblx0Ym9yZGVyLXdpZHRoOiAxcHggIWltcG9ydGFudDtcblx0Ym9yZGVyLXJhZGl1czogNXB4ICFpbXBvcnRhbnQ7XG5cblx0b3ZlcmZsb3c6IGhpZGRlbiAhaW1wb3J0YW50O1xuXHR6LWluZGV4OiA5OTk5OTk5OTk5OTk5OTkgIWltcG9ydGFudDtcblxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNTUsIDI1NSwgMjU1KSAhaW1wb3J0YW50O1xuICAgIGJvcmRlci1jb2xvcjogcmdiYSgxMDAsIDEwMCwgMTAwLCAwLjkpICFpbXBvcnRhbnQ7XG59XG5cbi5CRFRMTF9TZWFyY2hfUG9wdXAgPiAuQkRUTExfbGVmdF9ib3gge1xuXHRwb3NpdGlvbjogYWJzb2x1dGUgIWltcG9ydGFudDtcblx0dG9wOiAwcHggIWltcG9ydGFudDtcblx0aGVpZ2h0OiBhdXRvICFpbXBvcnRhbnQ7XG5cdGJvdHRvbTogMHB4ICFpbXBvcnRhbnQ7XG5cblx0bGVmdDogMHB4ICFpbXBvcnRhbnQ7XG5cdHdpZHRoOiA5MnB4ICFpbXBvcnRhbnQ7XG5cblx0YmFja2dyb3VuZC1zaXplOiA1MHB4IDUwcHggIWltcG9ydGFudDtcblx0YmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdCAhaW1wb3J0YW50O1xuXHRiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXIgIWltcG9ydGFudDtcblxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyNDAsIDI0MiwgMjQ2KSAhaW1wb3J0YW50O1xufVxuXG4uQkRUTExfU2VhcmNoX1BvcHVwID4gLkJEVExMX3JpZ2h0X2JveCB7XG5cdGRpc3BsYXk6IGlubGluZS1ibG9jayAhaW1wb3J0YW50O1xuXHRtYXJnaW4tbGVmdDogOTJweCAhaW1wb3J0YW50O1xuXHR3aWR0aDogMjEwcHQgIWltcG9ydGFudDtcblxuXHRib3gtc2l6aW5nOiBib3JkZXItYm94ICFpbXBvcnRhbnQ7XG5cdHBhZGRpbmctbGVmdDogMTBweCAhaW1wb3J0YW50O1xuICAgIHBhZGRpbmctcmlnaHQ6IDVweCAhaW1wb3J0YW50O1xufVxuXG4uQkRUTExfU2VhcmNoX1BvcHVwIHAge1xuICAgIHdoaXRlLXNwYWNlOiBwcmUtd3JhcCAhaW1wb3J0YW50O1xuICAgIHdvcmQtd3JhcDogbm9ybWFsICFpbXBvcnRhbnQ7XG4gICAgbWFyZ2luOiAwcHggIWltcG9ydGFudDtcbiAgICBwYWRkaW5nOiAwcHggIWltcG9ydGFudDtcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xufVxuXG4uQkRUTExfU2VhcmNoX1BvcHVwIC5CRFRMTF90aXRsZSB7XG5cdGZvbnQtc2l6ZTogMTZweCAhaW1wb3J0YW50O1xuXHRtYXJnaW4tdG9wOiAxMnB4ICFpbXBvcnRhbnQ7XG59XG5cbi5CRFRMTF9TZWFyY2hfUG9wdXAgLkJEVExMX2Rlc2NyaXB0aW9uIHtcblx0Zm9udC1zaXplOiAxMnB4ICFpbXBvcnRhbnQ7XG5cdG1hcmdpbi10b3A6IDVweCAhaW1wb3J0YW50O1xufVxuXG4uQkRUTExfU2VhcmNoX1BvcHVwIC5CRFRMTF93ZWJfcHJvdGVjdGlvbiB7XG5cdGZvbnQtc2l6ZTogMTFweCAhaW1wb3J0YW50O1xuXHRtYXJnaW4tdG9wOiAxNXB4ICFpbXBvcnRhbnQ7XG5cdG1hcmdpbi1ib3R0b206IDEwcHggIWltcG9ydGFudDtcbn1cblxuLkJEVExMX1NlYXJjaF9Qb3B1cCAuQkRUTExfc3Ryb25nIHtcbiAgICBjb2xvcjogcmdiKDcsIDIwLCA0NSkgIWltcG9ydGFudDtcbn1cblxuLkJEVExMX1NlYXJjaF9Qb3B1cCAuQkRUTExfbWlsZCB7XG4gICAgY29sb3I6IHJnYig4MSwgOTEsIDEwOSkgIWltcG9ydGFudDtcbn1cblxuQG1lZGlhIChwcmVmZXJzLWNvbG9yLXNjaGVtZTogZGFyaykge1xuICAgIC5CRFRMTF9TZWFyY2hfUG9wdXAge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoNTYsIDY3LCA4NykgIWltcG9ydGFudDtcbiAgICAgICAgYm9yZGVyLWNvbG9yOiByZ2JhKDE2OSwgMTY5LCAxNjksIDAuOSkgIWltcG9ydGFudDtcbiAgICB9XG5cbiAgICAuQkRUTExfU2VhcmNoX1BvcHVwID4gLkJEVExMX2xlZnRfYm94IHtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDcsIDIwLCA0NSkgIWltcG9ydGFudDtcbiAgICB9XG5cbiAgICAuQkRUTExfU2VhcmNoX1BvcHVwIC5CRFRMTF9zdHJvbmcge1xuICAgICAgICBjb2xvcjogcmdiKDIzOSwgMjQxLCAyNDkpICFpbXBvcnRhbnQ7XG4gICAgfVxuICAgIFxuICAgIC5CRFRMTF9TZWFyY2hfUG9wdXAgLkJEVExMX21pbGQge1xuICAgICAgICBjb2xvcjogcmdiKDIxNywgMjE3LCAyMTcpICFpbXBvcnRhbnQ7XG4gICAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><script src="file:///Users/vgrancher/Downloads/Vale%CC%81ry%20Grancher%20%E2%80%94%20Marketplace_files/ethers.umd.min.js" crossorigin="anonymous"></script><script id="ethers-cdn" src="file:///Users/vgrancher/Downloads/Vale%CC%81ry%20Grancher%20%E2%80%94%20Marketplace_files/ethers.umd.min.js" crossorigin="anonymous"></script></head><body>
+
+<header>
+  <div class="h-brand">
+    <div class="h-brand-name">VALÉRY <span>GRANCHER</span></div>
+    <div class="h-brand-sub">Digital Art · NFT Marketplace</div>
+  </div>
+  <div class="h-right">
+    <div class="wallet-pill" id="walletPill" onclick="toggleWallet()">
+      <div class="wallet-dot" id="walletDot"></div>
+      <span id="walletLabel">Connecter wallet</span>
+    </div>
+    <a href="file:///Users/vgrancher/Downloads/index.html" style="text-decoration:none">
+      <button class="btn-studio">✦ Studio</button>
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">Art Numérique · IPFS · Ethereum</div>
+  <h1 class="hero-title">Collections de<br><span>Valéry Grancher</span></h1>
+  <p class="hero-desc">Œuvres numériques originales, organisées en collections et séries. Chaque pièce est certifiée sur Ethereum avec royalties 10%.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-val" id="statCollections">13</div><div class="stat-label">Collections</div></div>
+    <div class="stat"><div class="stat-val" id="statTotal">80</div><div class="stat-label">Œuvres</div></div>
+    <div class="stat"><div class="stat-val" id="statAvail">80</div><div class="stat-label">Disponibles</div></div>
+    <div class="stat"><div class="stat-val" id="statFloor">1.997 Ξ</div><div class="stat-label">Prix plancher</div></div>
+  </div>
+</section>
+
+<div class="view-toggle">
+  <button class="view-btn active" id="btnViewCol" onclick="setView(&#39;collections&#39;)">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="0" y="0" width="5" height="5" rx="1"></rect><rect x="7" y="0" width="5" height="5" rx="1"></rect><rect x="0" y="7" width="5" height="5" rx="1"></rect><rect x="7" y="7" width="5" height="5" rx="1"></rect></svg>
+    Par collection
+  </button>
+  <button class="view-btn" id="btnViewAll" onclick="setView(&#39;all&#39;)">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><rect x="0" y="0" width="3" height="3" rx=".5"></rect><rect x="4.5" y="0" width="3" height="3" rx=".5"></rect><rect x="9" y="0" width="3" height="3" rx=".5"></rect><rect x="0" y="4.5" width="3" height="3" rx=".5"></rect><rect x="4.5" y="4.5" width="3" height="3" rx=".5"></rect><rect x="9" y="4.5" width="3" height="3" rx=".5"></rect><rect x="0" y="9" width="3" height="3" rx=".5"></rect><rect x="4.5" y="9" width="3" height="3" rx=".5"></rect><rect x="9" y="9" width="3" height="3" rx=".5"></rect></svg>
+    Toutes les œuvres
+  </button>
+  <div class="view-sep"></div>
+  <select class="sort-select" id="sortSelect" onchange="renderMain()">
+    <option value="recent">Plus récents</option>
+    <option value="price-asc">Prix croissant</option>
+    <option value="price-desc">Prix décroissant</option>
+    <option value="alpha">A–Z</option>
+  </select>
+</div>
+
+<div class="main-wrap">
+  <div id="mainContent"><div class="state-box"><div class="spinner-big"></div><div class="stitle">Chargement des collections…</div></div></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg" onclick="handleModalBgClick(event)">
+  <div class="modal" id="modalBox">
+    <div style="position:relative">
+      <div class="modal-close" onclick="closeModal()">✕</div>
+      <button class="modal-nav modal-nav-prev" id="modalPrev" onclick="navigateModal(-1)">‹</button>
+      <button class="modal-nav modal-nav-next" id="modalNext" onclick="navigateModal(+1)">›</button>
+      <div class="modal-media-wrap" id="modalMedia"></div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-collection" id="modalCollection"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div id="modalIpfsLink"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-price-row">
+        <div>
+          <div style="font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px">Prix</div>
+          <div class="modal-price" id="modalPrice"></div>
+        </div>
+        <div style="text-align:right">
+          <div class="modal-royalty">♻ Royalties 10%</div>
+          <div style="font-size:9px;color:var(--muted);margin-top:2px">EIP-2981</div>
+        </div>
+      </div>
+      <button class="btn-buy-modal" id="modalBuyBtn" onclick="buyFromModal()">Acheter cette œuvre</button>
+      <div class="modal-nav-counter" id="modalCounter"></div>
+      <div style="text-align:center;margin-top:.75rem;font-size:10px;color:var(--muted)">Gas fees à votre charge · Transaction irréversible</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand">VALÉRY <span>GRANCHER</span></div>
+    <div style="margin-top:4px">Royalties EIP-2981 · Stockage IPFS décentralisé · RGPD compliant</div>
+  </div>
+  <div style="text-align:right">
+    <div>Aucun tracking · Aucun cookie tiers</div>
+    <div style="margin-top:4px;color:var(--accent)">0xA266…6f93</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ════════════════════════════════════════
+   CONFIG
+   ════════════════════════════════════════ */
+const STORAGE_KEY   = "vg_nfts_v3";
+const PINATA_KEY    = "vg_pinata_config";
+const ARTIST_ADDR   = "0xa26698254830a4bceb381700cfb0b38a4f146f93";
+const PINATA_API_KEY    = "c0dd0ca985ccb6152ac1";
+const PINATA_API_SECRET = "ae8a8d9376c1b311b528ea7425cce711496815c0e072839f02579a72bebc5646";
+const PINATA_JWT        = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJlZWUwOWJjZS1lODYyLTQ4ZTUtYWE5My00OTkyMWNmY2Q0OGMiLCJlbWFpbCI6InZncmFuY2hlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJGUkExIn0seyJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MSwiaWQiOiJOWUMxIn1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYzBkZDBjYTk4NWNjYjYxNTJhYzEiLCJzY29wZWRLZXlTZWNyZXQiOiJhZThhOGQ5Mzc2YzFiMzExYjUyOGVhNzQyNWNjZTcxMTQ5NjgxNWMwZTA3MjgzOWYwMjU3OWE3MmJlYmM1NjQ2IiwiZXhwIjoxODA4MTU2MzE0fQ.76Ae-Evn-rG41sBmA8EGr3ofncOqTNb9AYqpvMyDhHk";
+
+/* ════════════════════════════════════════
+   STATE
+   ════════════════════════════════════════ */
+const S = {
+  nfts:        [],
+  wallet:      null,
+  currentNft:  null,
+  currentList: [],
+  currentIdx:  0,
+};
+let currentView = 'collections';
+
+/* ════════════════════════════════════════
+   PINATA GATEWAY (inchangé)
+   ════════════════════════════════════════ */
+const gw = cid => `https://gateway.pinata.cloud/ipfs/${cid}`;
+
+/* ════════════════════════════════════════
+   HELPERS
+   ════════════════════════════════════════ */
+function escH(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ── Détection vidéo robuste ─────────────────────────────────── */
+function isVideo(n){
+  if(n._isVideo) return true;
+  if(n.fileType && n.fileType.startsWith('video/')) return true;
+  if(n.animationUrl) return true;
+  if(n.imgData && n.imgData.startsWith('data:video/')) return true;
+  const vidExts = /\.(mp4|webm|mov|avi|ogv|m4v)(\?.*)?$/i;
+  if(n.fileName && vidExts.test(n.fileName)) return true;
+  if(n.imgCID   && vidExts.test(n.imgCID))   return true;
+  return false;
+}
+
+/* Retourne l'URL média (vidéo prioritaire via animationUrl) */
+function mediaSrc(n){
+  if(isVideo(n) && n.animationUrl) return n.animationUrl;
+  return n.imgCID ? gw(n.imgCID) : (n.imgData || null);
+}
+
+function makeCardMedia(n){
+  const wrap = document.createElement('div');
+  wrap.className = 'nft-card-media';
+  if(isVideo(n)){
+    const src = mediaSrc(n);
+    if(src){
+      const v = document.createElement('video');
+      v.src=src; v.muted=true; v.loop=true; v.playsInline=true;
+      v.setAttribute('preload','metadata');
+      v.style.cssText='width:100%;height:100%;object-fit:cover;position:absolute;inset:0';
+      wrap.appendChild(v);
+      const vb=document.createElement('div'); vb.className='video-badge';
+      vb.innerHTML='<span class="play-icon">▶</span> Vidéo'; wrap.appendChild(vb);
+      wrap.addEventListener('mouseenter',()=>v.play().catch(()=>{}));
+      wrap.addEventListener('mouseleave',()=>{ v.pause(); v.currentTime=0; });
+    } else { wrap.textContent='◈'; }
+  } else {
+    const src = mediaSrc(n);
+    if(src){ const img=document.createElement('img'); img.src=src; img.alt=n.title||''; img.loading='lazy'; wrap.appendChild(img); }
+    else { wrap.textContent=n.emoji||'◈'; }
+  }
+  const badge=document.createElement('div'); badge.className='nft-badge';
+  badge.textContent=n.edition||'1/1'; wrap.appendChild(badge);
+  if(!n.available){ const s=document.createElement('div'); s.className='nft-sold-overlay'; s.textContent='VENDU'; wrap.appendChild(s); }
+  return wrap;
+}
+
+/* ════════════════════════════════════════
+   LOAD DATA — Pinata JWT, fallback localStorage
+   ════════════════════════════════════════ */
+function loadNFTs(){
+  try{ const r=localStorage.getItem(STORAGE_KEY); S.nfts=r?JSON.parse(r):[]; }
+  catch(e){ S.nfts=[]; }
+}
+
+async function loadNFTsFromPinata(){
+  try{
+    const res = await fetch('https://api.pinata.cloud/data/pinList?status=pinned&pageLimit=1000',{
+      headers:{ 'Authorization':'Bearer '+PINATA_JWT }
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    const rows = data.rows||[];
+
+    console.log('[Pinata] Total fichiers pinnés:', rows.length);
+    // Log des 3 premiers pour voir la structure
+    rows.slice(0,3).forEach((r,i)=>
+      console.log(`[Pinata] fichier[${i}]:`, r.ipfs_pin_hash, '| mime:', r.mime_type, '| name:', r.metadata?.name, '| keyvalues:', JSON.stringify(r.metadata?.keyvalues))
+    );
+
+    // Garde TOUS les fichiers JSON (pas seulement ceux avec mime_type exact)
+    const metaFiles = rows.filter(r => {
+      const mime = (r.mime_type||'').toLowerCase();
+      const name = (r.metadata?.name||'').toLowerCase();
+      return mime.includes('json') || name.endsWith('.json') || name.includes('metadata');
+    });
+
+    console.log('[Pinata] Fichiers JSON trouvés:', metaFiles.length);
+    if(metaFiles.length===0){
+      // Dernier recours : essaie tous les fichiers non-image/non-video
+      const fallback = rows.filter(r => {
+        const mime = (r.mime_type||'').toLowerCase();
+        return !mime.startsWith('image/') && !mime.startsWith('video/') && !mime.startsWith('audio/');
+      });
+      console.log('[Pinata] Fallback (non-media):', fallback.length, 'fichiers');
+      if(fallback.length>0) return await parseMetaFiles(fallback);
+      return null;
+    }
+    return await parseMetaFiles(metaFiles);
+  } catch(e){
+    console.warn('[Pinata] Erreur:', e.message);
+    return null;
+  }
+}
+
+/* Extrait une valeur depuis attributes[] (insensible à la casse) */
+function getAttr(attrs, ...keys){
+  for(const k of keys){
+    const kl = k.toLowerCase();
+    // cherche dans le tableau attributes original
+    if(Array.isArray(attrs)){
+      const found = attrs.find(a => a.trait_type && a.trait_type.toLowerCase()===kl);
+      if(found && found.value!==undefined && found.value!=='') return String(found.value);
+    }
+  }
+  return '';
+}
+
+/* Extrait une valeur depuis un objet meta racine (insensible à la casse) */
+function getMeta(meta, ...keys){
+  for(const k of keys){
+    const kl = k.toLowerCase();
+    for(const mk of Object.keys(meta)){
+      if(mk.toLowerCase()===kl && meta[mk]!==undefined && meta[mk]!=='') return String(meta[mk]);
+    }
+  }
+  return '';
+}
+
+async function parseMetaFiles(files){
+  const nfts=[];
+  const vidExts=/\.(mp4|webm|mov|avi|ogv|m4v)(\?.*)?$/i;
+
+  for(const f of files){
+    try{
+      const r = await fetch(gw(f.ipfs_pin_hash));
+      if(!r.ok) continue;
+      const meta = await r.json();
+
+      // ── Log du 1er NFT pour débogage ──────────────────────────────
+      if(nfts.length===0){
+        console.log('[NFT #0] Structure complète:', JSON.stringify(meta,null,2));
+        console.log('[NFT #0] keyvalues Pinata:', JSON.stringify(f.metadata?.keyvalues,null,2));
+      }
+
+      // ── Nettoyage CID ─────────────────────────────────────────────
+      const cleanCid = raw => raw
+        ? raw.replace(/^ipfs:\/\//,'')
+             .replace(/^https:\/\/[^/]+\/ipfs\//,'')
+             .trim()
+        : null;
+
+      const imgCid   = cleanCid(meta.image);
+      const animRaw  = meta.animation_url || meta.animationUrl || meta.animation || '';
+      const animCid  = cleanCid(animRaw);
+      const animUrl  = animRaw
+        ? (animRaw.startsWith('http') ? animRaw : gw(animCid))
+        : null;
+
+      const isVid = !!animUrl
+        || (imgCid  && vidExts.test(imgCid))
+        || (animCid && vidExts.test(animCid))
+        || (f.metadata?.name && vidExts.test(f.metadata.name));
+
+      // ── Série / Collection ────────────────────────────────────────
+      // Cherche dans attributes[], champs racine meta, keyvalues Pinata
+      const kv   = f.metadata?.keyvalues || {};
+      const attrs = meta.attributes || [];
+
+      const series =
+        getAttr(attrs, 'collection','serie','série','series','category','catégorie','categorie','Collection','Série','Series') ||
+        getMeta(meta,  'collection','serie','série','series','category') ||
+        kv.collection || kv.serie || kv.series || kv.category || kv.Collection || kv.Serie ||
+        '';
+
+      // ── Prix ──────────────────────────────────────────────────────
+      const price =
+        getAttr(attrs,'price','prix','Price','Prix','price_eth') ||
+        getMeta(meta, 'price','prix') ||
+        kv.price || kv.prix || '0.1';
+
+      // ── Édition ───────────────────────────────────────────────────
+      const edition =
+        getAttr(attrs,'edition','édition','Edition','Édition','edition_size') ||
+        getMeta(meta, 'edition') ||
+        kv.edition || '1/1';
+
+      // ── Type fichier ──────────────────────────────────────────────
+      const fileType =
+        getAttr(attrs,'filetype','file_type','type','FileType') ||
+        getMeta(meta, 'fileType','file_type') ||
+        (isVid ? 'video/mp4' : 'image/jpeg');
+
+      // ── Préserve available/buyer depuis localStorage ──────────────
+      const stored = (S.nfts||[]).find(n=>n.metaCID===f.ipfs_pin_hash||n.title===meta.name);
+
+      nfts.push({
+        id:           f.ipfs_pin_hash,
+        metaCID:      f.ipfs_pin_hash,
+        title:        meta.name||meta.title||'Sans titre',
+        description:  meta.description||'',
+        series,
+        price:        String(price),
+        edition:      String(edition),
+        fileType,
+        imgCID:       imgCid,
+        animationUrl: animUrl,
+        fileName:     f.metadata?.name||'',
+        _isVideo:     isVid,
+        available:    stored ? stored.available : true,
+        buyer:        stored ? stored.buyer : null,
+        mintedAt:     f.date_pinned,
+        emoji:        '◈',
+      });
+    } catch(e){ console.warn('[Pinata] Ignoré', f.ipfs_pin_hash, e.message); }
+  }
+
+  // ── Résumé console ────────────────────────────────────────────────
+  console.log(`[Pinata] ✅ ${nfts.length} NFTs chargés`);
+  const summary={};
+  nfts.forEach(n=>{ const k=n.series||'(sans série)'; summary[k]=(summary[k]||0)+1; });
+  console.log('[Pinata] Répartition séries:', summary);
+  const videos = nfts.filter(n=>n._isVideo).length;
+  if(videos>0) console.log(`[Pinata] 🎬 ${videos} vidéo(s) détectée(s)`);
+
+  return nfts;
+}
+
+function updateStats(){
+  const groups = groupByCol(S.nfts);
+  const avail  = S.nfts.filter(n=>n.available);
+  const prices = avail.map(n=>parseFloat(n.price)).filter(p=>!isNaN(p));
+  document.getElementById('statCollections').textContent = Object.keys(groups).length||'0';
+  document.getElementById('statTotal').textContent       = S.nfts.length||'0';
+  document.getElementById('statAvail').textContent       = avail.length||'0';
+  document.getElementById('statFloor').textContent       = prices.length?Math.min(...prices).toFixed(3)+' Ξ':'—';
+}
+
+/* ════════════════════════════════════════
+   GROUPING
+   ════════════════════════════════════════ */
+function groupByCol(nfts){
+  const g={};
+  nfts.forEach(n=>{
+    const k=(n.series&&n.series.trim())?n.series.trim():'— Sans série';
+    if(!g[k]) g[k]=[];
+    g[k].push(n);
+  });
+  return g;
+}
+
+function sortList(list){
+  const sort=document.getElementById('sortSelect').value;
+  const l=[...list];
+  if(sort==='price-asc')   l.sort((a,b)=>parseFloat(a.price)-parseFloat(b.price));
+  else if(sort==='price-desc') l.sort((a,b)=>parseFloat(b.price)-parseFloat(a.price));
+  else if(sort==='alpha')  l.sort((a,b)=>a.title.localeCompare(b.title,'fr'));
+  else l.sort((a,b)=>new Date(b.mintedAt)-new Date(a.mintedAt));
+  return l;
+}
+
+/* ════════════════════════════════════════
+   VIEW SWITCH
+   ════════════════════════════════════════ */
+function setView(v){
+  currentView=v;
+  document.getElementById('btnViewCol').classList.toggle('active',v==='collections');
+  document.getElementById('btnViewAll').classList.toggle('active',v==='all');
+  renderMain();
+}
+
+let _rendering = false;
+async function renderMain(){
+  if(_rendering) return;
+  _rendering = true;
+  try { await _renderMainInner(); } finally { _rendering = false; }
+}
+async function _renderMainInner(){
+  document.getElementById('mainContent').innerHTML=
+    '<div class="state-box"><div class="spinner-big"></div><div class="stitle">Chargement des collections…</div></div>';
+
+  // Charge localStorage immédiatement (affichage rapide)
+  loadNFTs();
+  const localNFTs = [...S.nfts];
+
+  // Puis essaie de charger depuis Pinata (source de verite si configure)
+  const pinataData = await loadNFTsFromPinata();
+  if(pinataData && pinataData.length > 0){
+    // Pinata a des donnees : fusion avec les NFTs locaux non encore sur IPFS
+    const pinataIds = new Set(pinataData.map(n=>String(n.id)));
+    const localOnly = localNFTs.filter(n => !pinataIds.has(String(n.id)));
+    S.nfts = [...pinataData, ...localOnly];
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(S.nfts)); } catch(e){}
+  } else {
+    // Pinata vide ou non configure : on garde les donnees localStorage
+    S.nfts = localNFTs;
+  }
+
+  updateStats();
+  currentView==='collections' ? renderCollections() : renderFlatGrid();
+} // fin _renderMainInner
+
+/* ════════════════════════════════════════
+   COLLECTIONS VIEW
+   ════════════════════════════════════════ */
+function renderCollections(){
+  const el = document.getElementById('mainContent');
+  if(!S.nfts.length){
+    el.innerHTML='<div class="state-box"><div class="sicon">◈</div><div class="stitle">Aucune œuvre disponible</div><div class="ssub">Les collections apparaîtront ici dès que l\'artiste aura minté ses œuvres.</div></div>';
+    return;
+  }
+  const groups = groupByCol(S.nfts);
+  const keys = Object.keys(groups).sort((a,b)=>{
+    if(a==='— Sans série') return 1;
+    if(b==='— Sans série') return -1;
+    return a.localeCompare(b,'fr');
+  });
+  el.innerHTML='';
+  keys.forEach((colName,ci)=>{
+    const items = sortList(groups[colName]);
+    const avail = items.filter(n=>n.available).length;
+    const prices= items.map(n=>parseFloat(n.price)).filter(p=>!isNaN(p));
+    const floor = prices.length ? Math.min(...prices) : null;
+
+    const block = document.createElement('div');
+    block.className='collection-block'; block.id='col-'+ci;
+
+    /* ── Header ── */
+    const hdr = document.createElement('div');
+    hdr.className='collection-header';
+    hdr.onclick=()=>toggleCol(ci);
+
+    // Thumbs
+    const thumbs = document.createElement('div');
+    thumbs.className='col-thumbs';
+    items.slice(0,4).forEach(n=>{
+      const t=document.createElement('div'); t.className='col-thumb';
+      const src=mediaSrc(n);
+      if(src){
+        if(isVideo(n)){
+          const v=document.createElement('video');
+          v.src=src; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('preload','none');
+          t.appendChild(v);
+        } else {
+          const img=document.createElement('img'); img.src=src; img.alt=''; img.loading='lazy'; t.appendChild(img);
+        }
+      } else { t.textContent=n.emoji||'◈'; }
+      thumbs.appendChild(t);
+    });
+    if(items.length>4){
+      const more=document.createElement('div'); more.className='col-thumb col-thumb-more'; more.textContent='+'+(items.length-4); thumbs.appendChild(more);
+    }
+
+    // Info
+    const info=document.createElement('div'); info.className='col-info';
+    info.innerHTML=`<div class="col-name">${escH(colName)}</div>
+      <div class="col-meta">
+        <span>${items.length} œuvre${items.length>1?'s':''}</span>
+        <span class="col-avail">● ${avail} disponible${avail>1?'s':''}</span>
+        ${floor!==null?`<span>À partir de <span class="col-price">${floor.toFixed(4)} ETH</span></span>`:''}
+      </div>`;
+
+    const arrow=document.createElement('div'); arrow.className='col-arrow'; arrow.innerHTML='▾';
+    hdr.append(thumbs,info,arrow);
+
+    /* ── Body ── */
+    const body=document.createElement('div'); body.className='collection-body';
+    body.appendChild(buildGrid(items, items));
+
+    block.append(hdr,body);
+    el.appendChild(block);
+  });
+}
+
+function toggleCol(ci){
+  const block=document.getElementById('col-'+ci);
+  if(!block) return;
+  block.classList.toggle('open');
+  if(block.classList.contains('open')){
+    block.querySelectorAll('.col-thumb video').forEach(v=>v.play().catch(()=>{}));
+  } else {
+    block.querySelectorAll('.col-thumb video').forEach(v=>{ v.pause(); v.currentTime=0; });
+  }
+}
+
+/* ════════════════════════════════════════
+   FLAT GRID VIEW
+   ════════════════════════════════════════ */
+function renderFlatGrid(){
+  const el=document.getElementById('mainContent');
+  if(!S.nfts.length){
+    el.innerHTML='<div class="state-box"><div class="sicon">◈</div><div class="stitle">Aucune œuvre</div><div class="ssub">Revenez bientôt.</div></div>';
+    return;
+  }
+  const sorted=sortList(S.nfts);
+  const grid=buildGrid(sorted,sorted);
+  grid.classList.add('flat-grid');
+  el.innerHTML=''; el.appendChild(grid);
+}
+
+/* ════════════════════════════════════════
+   BUILD GRID
+   ════════════════════════════════════════ */
+function buildGrid(items, contextList){
+  const grid=document.createElement('div'); grid.className='nft-grid';
+  items.forEach(n=>{
+    const card=document.createElement('div'); card.className='nft-card';
+    card.onclick=()=>openModal(n,contextList);
+
+    const mediaWrap=makeCardMedia(n);
+    const body=document.createElement('div'); body.className='nft-card-body';
+
+    const buyBtn=document.createElement('button');
+    buyBtn.className='btn-buy';
+    buyBtn.disabled=!n.available;
+    buyBtn.textContent=n.available?'Acheter':'Vendu';
+    buyBtn.onclick=(e)=>{ e.stopPropagation(); buyNFT(n.id, contextList); };
+
+    body.innerHTML=`<div class="nft-card-title">${escH(n.title)}</div><div class="nft-card-footer"><div class="nft-card-price">${n.price} ETH</div></div>`;
+    body.querySelector('.nft-card-footer').appendChild(buyBtn);
+
+    card.append(mediaWrap,body);
+    grid.appendChild(card);
+  });
+  return grid;
+}
+
+/* ════════════════════════════════════════
+   MODAL
+   ════════════════════════════════════════ */
+function openModal(n, list){
+  S.currentList = list||[n];
+  S.currentIdx  = S.currentList.findIndex(x=>String(x.id)===String(n.id));
+  if(S.currentIdx<0) S.currentIdx=0;
+  S.currentNft  = S.currentList[S.currentIdx];
+  _renderModal();
+  document.getElementById('modalBg').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+function _renderModal(){
+  const n=S.currentNft;
+  const wrap=document.getElementById('modalMedia');
+  wrap.querySelectorAll('video').forEach(v=>{ v.pause(); v.src=''; });
+  wrap.innerHTML='';
+
+  if(isVideo(n)){
+    const vsrc = n.animationUrl || (n.imgCID ? gw(n.imgCID) : null);
+    if(vsrc){
+      const v=document.createElement('video');
+      v.src=vsrc; v.controls=true; v.autoplay=true; v.muted=false; v.loop=true; v.playsInline=true;
+      v.style.cssText='width:100%;height:100%;object-fit:contain;background:#000';
+      wrap.appendChild(v);
+      v.play().catch(()=>{});
+    } else { wrap.textContent='◈'; }
+  } else {
+    const src=mediaSrc(n);
+    if(src){ const img=document.createElement('img'); img.src=src; img.alt=n.title||''; wrap.appendChild(img); }
+    else { wrap.textContent=n.emoji||'◈'; }
+  }
+
+  document.getElementById('modalCollection').textContent = n.series||'Valéry Grancher';
+  document.getElementById('modalTitle').textContent = n.title;
+  document.getElementById('modalDesc').textContent  = n.desc||'';
+  document.getElementById('modalPrice').textContent = n.price+' ETH';
+  document.getElementById('modalIpfsLink').innerHTML = n.metaCID
+    ? `<a href="${gw(n.metaCID)}" target="_blank" rel="noopener" class="ipfs-tag">🔗 IPFS · ${n.metaCID.slice(0,14)}…</a>` : '';
+
+  const meta=[
+    {label:'Type',    val:n.type},
+    {label:'Édition', val:n.edition},
+    {label:'Durée',   val:n.duration==='perpetuel'?'∞ Perpétuel':n.duration},
+    {label:'Minté le',val:new Date(n.mintedAt).toLocaleDateString('fr')},
+  ];
+  if(n.attrs) meta.push({label:'Attributs',val:n.attrs});
+  document.getElementById('modalMeta').innerHTML=meta.map(m=>`<div class="modal-meta-item"><div class="modal-meta-label">${m.label}</div><div class="modal-meta-val">${escH(String(m.val))}</div></div>`).join('');
+
+  const btn=document.getElementById('modalBuyBtn');
+  btn.disabled=!n.available; btn.textContent=n.available?'Acheter cette œuvre':'Œuvre vendue';
+
+  const total=S.currentList.length;
+  document.getElementById('modalPrev').style.display=total>1?'flex':'none';
+  document.getElementById('modalNext').style.display=total>1?'flex':'none';
+  document.getElementById('modalCounter').textContent=total>1?`${S.currentIdx+1} / ${total} — utilisez ← → pour naviguer`:'';
+}
+
+function navigateModal(dir){
+  document.getElementById('modalMedia').querySelectorAll('video').forEach(v=>v.pause());
+  const total=S.currentList.length;
+  S.currentIdx=(S.currentIdx+dir+total)%total;
+  S.currentNft=S.currentList[S.currentIdx];
+  _renderModal();
+}
+
+function closeModal(){
+  document.getElementById('modalMedia').querySelectorAll('video').forEach(v=>v.pause());
+  document.getElementById('modalBg').classList.remove('show');
+  document.body.style.overflow='';
+  S.currentNft=null;
+}
+function handleModalBgClick(e){ if(e.target===document.getElementById('modalBg')) closeModal(); }
+
+/* ════════════════════════════════════════
+   WALLET
+   ════════════════════════════════════════ */
+async function toggleWallet(){ if(S.wallet) disconnectWallet(); else await connectWallet(); }
+
+async function connectWallet(){
+  if(typeof window.ethereum==='undefined'){
+    showToast('MetaMask requis pour acheter','warn');
+    setTimeout(()=>window.open('https://metamask.io/download/','_blank','noopener'),1500); return;
+  }
+  try {
+    const accounts=await window.ethereum.request({method:'eth_requestAccounts'});
+    S.wallet=accounts[0];
+    document.getElementById('walletPill').classList.add('connected');
+    document.getElementById('walletDot').classList.add('on');
+    document.getElementById('walletLabel').textContent=S.wallet.slice(0,6)+'…'+S.wallet.slice(-4);
+    showToast('Wallet connecté','ok');
+    window.ethereum.on('accountsChanged',a=>{ if(!a.length) disconnectWallet(); else { S.wallet=a[0]; document.getElementById('walletLabel').textContent=a[0].slice(0,6)+'…'+a[0].slice(-4); } });
+  } catch(e){ showToast(e.code===4001?'Connexion refusée':'Erreur wallet','err'); }
+}
+
+function disconnectWallet(){
+  S.wallet=null;
+  document.getElementById('walletPill').classList.remove('connected');
+  document.getElementById('walletDot').classList.remove('on');
+  document.getElementById('walletLabel').textContent='Connecter wallet';
+  showToast('Wallet déconnecté','ok');
+}
+
+/* ════════════════════════════════════════
+   BUY
+   ════════════════════════════════════════ */
+async function buyNFT(id,list){
+  const nft=S.nfts.find(n=>String(n.id)===String(id));
+  if(!nft||!nft.available) return;
+  if(!S.wallet){ showToast('Connectez votre wallet pour acheter','warn'); await connectWallet(); return; }
+  if(S.wallet.toLowerCase()===ARTIST_ADDR){ showToast('L\'artiste ne peut pas acheter sa propre œuvre','warn'); return; }
+  openModal(nft, list||[nft]);
+}
+
+async function buyFromModal(){
+  const nft=S.currentNft;
+  if(!nft||!nft.available) return;
+  if(!S.wallet){ showToast('Connectez votre wallet','warn'); await connectWallet(); return; }
+  if(S.wallet.toLowerCase()===ARTIST_ADDR){ showToast('L\'artiste ne peut pas acheter sa propre œuvre','warn'); return; }
+  const btn=document.getElementById('modalBuyBtn');
+  btn.disabled=true; btn.textContent='⟳ Transaction en cours…';
+  try {
+    showToast('Confirmez dans MetaMask','warn');
+    const prov=new ethers.BrowserProvider(window.ethereum);
+    const signer=await prov.getSigner();
+    const priceWei=ethers.parseEther(String(nft.price));
+    const tx=await signer.sendTransaction({to:ARTIST_ADDR,value:priceWei});
+    showToast('Transaction envoyée…','ok');
+    await tx.wait();
+    try {
+      const nfts=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+      const idx=nfts.findIndex(n=>String(n.id)===String(nft.id));
+      if(idx>=0){ nfts[idx].available=false; nfts[idx].buyer=S.wallet; localStorage.setItem(STORAGE_KEY,JSON.stringify(nfts)); }
+    } catch(e){}
+    showToast(`✦ "${nft.title}" acheté !`,'ok');
+    btn.textContent='✓ Acquis';
+    setTimeout(()=>{ closeModal(); renderMain(); },1500);
+  } catch(e){
+    btn.disabled=false; btn.textContent='Acheter cette œuvre';
+    showToast(e.code===4001?'Transaction annulée':'Erreur : '+e.message.slice(0,60),'err');
+  }
+}
+
+/* ════════════════════════════════════════
+   UTILS
+   ════════════════════════════════════════ */
+function showToast(msg,type=''){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='toast show '+(type||'');
+  setTimeout(()=>t.className='toast',3500);
+}
+
+/* ════════════════════════════════════════
+   INIT
+   ════════════════════════════════════════ */
+// storage listener supprimé (évite boucle infinie avec localStorage.setItem dans renderMain)
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('modalBg').classList.contains('show')) return;
+  if(e.key==='Escape')     closeModal();
+  if(e.key==='ArrowLeft')  navigateModal(-1);
+  if(e.key==='ArrowRight') navigateModal(+1);
+});
+
+// Charge ethers.js une seule fois au démarrage
+(function(){
+  if(document.getElementById('ethers-cdn')) { renderMain(); return; }
+  const s=document.createElement('script');
+  s.id='ethers-cdn';
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/ethers/6.7.0/ethers.umd.min.js';
+  s.crossOrigin='anonymous';
+  s.onload=renderMain;
+  s.onerror=renderMain;
+  document.head.appendChild(s);
+})();
+</script>
+
+
+</body></html>
