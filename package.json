@@ -1,0 +1,11 @@
+{
+  "name": "valery-grancher-nft",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "stripe": "^14.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
